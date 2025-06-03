@@ -1,2 +1,1 @@
-# calculator
-odin proj - calculator
+virtual scientific calculator - andrewplot.github.io/calculator
