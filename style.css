@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen height */
+  margin: 0;
+  background-color: lightcyan;
+}
+
+#button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 360px;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #7393B3;
+}
+
+#button-grid #screen{
+    background-color: lightblue;
+    width: 350px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+#button-grid button {
+    background-color: lightblue;
+    width: 80px;
+    height: 60px; 
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#button-grid button:hover {
+  background-color: #a9cce3;
+}
+
+#button-grid #operatoreq {
+    width: 170px;
+}
