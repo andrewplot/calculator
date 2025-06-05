@@ -1,5 +1,3 @@
-//perhaps move typing to bottom display, and when pressing equals: have full eq on top, answer on bototm. then move ans to top when continuing operations
-
 //dom elements
 const numberButtons = document.querySelectorAll('[data-number]');
 const operationButtons = document.querySelectorAll('[data-operation]');
