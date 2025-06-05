@@ -9,32 +9,37 @@
 
 <body>
     <div id="button-grid">
-        <div id="screen"></div>
-        <button id="button-clear">C</button>
+        <div id="screen">
+            <div data-prev class="prev-operand"></div>
+            <div data-curr class="curr-operand"></div>
+        </div>
+        <button id="button-clear" data-clear>C</button>
         <button id=""></button>
         <button id=""></button>
-        <button id="operator+">+</button>
-        <button id="digit7">7</button>
-        <button id="digit8">8</button>
-        <button id="digit9">9</button>
-        <button id="operator-">-</button>
-        <button id="digit4">4</button>
-        <button id="digit5">5</button>
-        <button id="digit6">6</button>
-        <button id="operator*">×</button>
-        <button id="digit1">1</button>
-        <button id="digit2">2</button>
-        <button id="digit3">3</button>
-        <button id="operator/">÷</button>
-        <button id="digit0">0</button>
-        <button id="digit.">.</button>
-        <button id="operatoreq">=</button>
+        <button id="operator+" data-operation="+">+</button>
 
+        <button id="digit7" data-number="7">7</button>
+        <button id="digit8" data-number="8">8</button>
+        <button id="digit9" data-number="9">9</button>
+        <button id="operator-" data-operation="-">-</button>
+
+        <button id="digit4" data-number="4">4</button>
+        <button id="digit5" data-number="5">5</button>
+        <button id="digit6" data-number="6">6</button>
+        <button id="operator*" data-operation="*">×</button>
+
+        <button id="digit1" data-number="1">1</button>
+        <button id="digit2" data-number="2">2</button>
+        <button id="digit3" data-number="3">3</button>
+        <button id="operator/" data-operation="/">÷</button>
+
+        <button id="digit0" data-number="0">0</button>
+        <button id="digit." data-number=".">.</button>
+        <button id="operatoreq" data-equals="=">=</button>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
 
-<!-- ask chat what the most employable languages are after the basic ones, wanna learn something obscure like R or something'
-maybe come back to this project and make calculator 3d and rotatable, maybe with lighting  -->
+<!-- maybe come back to this project and make calculator 3d and rotatable, maybe with lighting  -->
