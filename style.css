@@ -1,15 +1,18 @@
+/* style.css */
+
+/* Make body a column flex container, full height */
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   background: linear-gradient(135deg, #e0f7fa, #80deea);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  perspective: 800px; /* Added for optional subtle 3D depth if needed */
+  perspective: 800px; /* Optional subtle 3D depth */
 }
 
-/* Calculator Container */
+/* Center the calculator vertically by giving it auto top/bottom margins */
 #button-grid {
   display: flex;
   flex-wrap: wrap;
@@ -20,12 +23,16 @@ body {
   border-radius: 16px;
   background-color: #37474f;
   /* Beveled border on body */
-  border-top: 2px solid #455a64;   
-  border-left: 2px solid #455a64;  
-  border-bottom: 2px solid #263238; 
-  border-right: 2px solid #263238; 
+  border-top:    2px solid #455a64;
+  border-left:   2px solid #455a64;
+  border-bottom: 2px solid #263238;
+  border-right:  2px solid #263238;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transform-style: preserve-3d;
+
+  /* center-vertically */
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 /* Screen Display */
@@ -44,13 +51,14 @@ body {
   text-align: right;
   box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
   /* Beveled border on screen */
-  border-bottom: 2px solid #f5f7f8; 
-  border-right: 2px solid #f5f7f8;
-  border-top: 2px solid #cfd6d8;
-  border-left: 2px solid #cfd6d8;
+  border-bottom: 2px solid #f5f7f8;
+  border-right:  2px solid #f5f7f8;
+  border-top:    2px solid #cfd6d8;
+  border-left:   2px solid #cfd6d8;
   transform: translateZ(10px);
 }
 
+/* Overflow handling for both rows */
 #button-grid #screen [data-prev],
 #button-grid #screen [data-curr] {
   overflow: hidden;
@@ -58,15 +66,17 @@ body {
   text-overflow: ellipsis;
 }
 
-#button-grid #screen #prev-operand {
+/* Lighter prev-operand (top row) */
+#button-grid #screen [data-prev] {
   font-size: 16px;
-  color: #546e7a;
+  color: #90a4ae; /* lighter shade than default */
   min-height: 20px;
 }
 
-#button-grid #screen #curr-operand {
+/* Current-operand (bottom row) – font-weight reduced */
+#button-grid #screen [data-curr] {
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 400; /* was 700, now lighter */
   color: #263238;
 }
 
@@ -80,10 +90,10 @@ body {
   border: none;
   border-radius: 12px;
   /* Subtle beveled border */
-  border-top: 2px solid #d0d2d6;   
-  border-left: 2px solid #d0d2d6;   
+  border-top:    2px solid #d0d2d6;
+  border-left:   2px solid #d0d2d6;
   border-bottom: 2px solid #455a64;
-  border-right: 2px solid #455a64; 
+  border-right:  2px solid #455a64;
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
@@ -97,9 +107,9 @@ body {
 #button-grid button:active {
   background-color: #546e7a;
   /* Invert bevel on press */
-  border-top:    2px solid #455a64; 
+  border-top:    2px solid #455a64;
   border-left:   2px solid #455a64;
-  border-bottom: 2px solid #d0d2d6; 
+  border-bottom: 2px solid #d0d2d6;
   border-right:  2px solid #d0d2d6;
 }
 
@@ -107,10 +117,10 @@ body {
 #button-grid #operatoreq {
   width: 170px;
   background-color: #f57c00;
-  border-top: 2px solid #ffb74d;  
-  border-left: 2px solid #ffb74d;
+  border-top:    2px solid #ffb74d;
+  border-left:   2px solid #ffb74d;
   border-bottom: 2px solid #e65100;
-  border-right: 2px solid #e65100;
+  border-right:  2px solid #e65100;
 }
 
 #button-grid #operatoreq:hover {
@@ -119,7 +129,7 @@ body {
 
 #button-grid #operatoreq:active {
   background-color: #ef6c00;
-  /* Inverted bevel for equal on press */
+  /* Inverted bevel for "=" on press */
   border-top:    2px solid #e65100;
   border-left:   2px solid #e65100;
   border-bottom: 2px solid #ffb74d;
@@ -142,4 +152,27 @@ body {
   #button-grid #operatoreq {
     width: 142px;
   }
+}
+
+/* Footer stays at bottom */
+footer {
+  width: 100%;
+  margin-top: 0;         /* “push down” happens automatically via #button-grid’s auto margins */
+  padding: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #777;
+}
+
+/* GitHub icon rotation */
+.github-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-left: 8px;
+  transition: transform 0.5s ease;
+}
+
+.github-link:hover .github-icon {
+  transform: rotate(360deg);
 }
