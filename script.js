@@ -35,7 +35,7 @@ function selectOperator(op){
         evaluate();
     }
     operator = op;
-    prevOperand = currOperand;
+    prevOperand = currOperand + ' ' + operator;
     currOperand = '';
 }
 
@@ -44,7 +44,7 @@ function subtract(a, b){return a-b}
 function multiply(a, b){return a*b}
 function divide(a, b){
     if (b === 0){
-        return 'Undefined';
+        return 'undefined';
     }
         return a/b
 }
@@ -97,4 +97,31 @@ equalsButton.addEventListener('click', () => {
 clearButton.addEventListener('click', () => {
   clearDisplay();
   updateDisplay();
+});
+
+document.addEventListener('keydown', (e) => {
+  const key = e.key;
+
+  if ((/\d/).test(key) || key === '.') {
+    const numberBtn = document.querySelector(`[data-number="${key}"]`);
+    if (numberBtn) numberBtn.click();
+    return;
+  }
+
+  if (['+', '-', '*', '/'].includes(key)) {
+    const opBtn = document.querySelector(`[data-operation="${key}"]`);
+    if (opBtn) opBtn.click();
+    return;
+  }
+
+  if (key === 'Enter' || key === '=') {
+    const equalsBtn = document.querySelector('[data-equals]');
+    if (equalsBtn) equalsBtn.click();
+    return;
+  }
+
+  if (key === 'Backspace') {
+    const clearBtn = document.querySelector('[data-clear]');
+    if (clearBtn) clearBtn.click();
+  }
 });
