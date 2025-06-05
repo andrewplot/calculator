@@ -1,56 +1,149 @@
+/* Full Style.css with Beveled Edges (No Wiggle) and Subtle Highlights */
+
+/* Global Body Styling */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full screen height */
+  height: 100vh;
   margin: 0;
-  background-color: lightcyan;
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  perspective: 800px; /* Added for optional subtle 3D depth if needed */
 }
 
+/* Calculator Container (Beveled Edges) */
 #button-grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 360px;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: #7393B3;
+  display: flex;
+  flex-wrap: wrap;
+  width: 360px;
+  gap: 10px;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: #37474f;
+  /* Beveled border on calculator body */
+  border-top: 2px solid #455a64;    /* subtle light highlight */
+  border-left: 2px solid #455a64;   /* subtle light highlight */
+  border-bottom: 2px solid #263238; /* subtle dark shadow */
+  border-right: 2px solid #263238;  /* subtle dark shadow */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  /* wiggle removed for simplicity */
 }
 
-#button-grid #screen{
-    background-color: lightblue;
-    width: 350px;
-    height: 80px;
-    border-radius: 8px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-
-    color: darkslategray;
-    font: arial;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: right;
+/* Screen Display (Beveled Edges) */
+#button-grid #screen {
+  background-color: #eceff1;
+  width: 350px;
+  height: 80px;
+  border-radius: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #263238;
+  font-size: 24px;
+  font-weight: 500;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: right;
+  box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Beveled border on screen */
+  border-bottom: 2px solid #f5f7f8;    /* subtle highlight */
+  border-right: 2px solid #f5f7f8;   /* subtle highlight */
+  border-top: 2px solid #cfd6d8; /* subtle shadow */
+  border-left: 2px solid #cfd6d8;  /* subtle shadow */
+  transform: translateZ(10px);
 }
 
-#button-grid #screen #prev-operand{
-    margin-bottom
+#button-grid #screen [data-prev],
+#button-grid #screen [data-curr] {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
+#button-grid #screen #prev-operand {
+  font-size: 16px;
+  color: #546e7a;
+  min-height: 20px;
+}
+
+#button-grid #screen #curr-operand {
+  font-size: 32px;
+  font-weight: 700;
+  color: #263238;
+}
+
+/* Beveled Button Styling (Subtle Highlights) */
 #button-grid button {
-    background-color: lightblue;
-    width: 80px;
-    height: 60px; 
-    margin-bottom: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+  background-color: #607d8b;
+  color: #ffffff;
+  width: 80px;
+  height: 60px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 12px;
+  /* Subtle beveled border */
+  border-top: 2px solid #d0d2d6;    /* lighter, more subtle highlight */
+  border-left: 2px solid #d0d2d6;   /* lighter, more subtle highlight */
+  border-bottom: 2px solid #455a64; /* dark shadow */
+  border-right: 2px solid #455a64;  /* dark shadow */
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border 0.1s ease;
 }
 
 #button-grid button:hover {
-  background-color: #a9cce3;
+  background-color: #78909c;
 }
 
+#button-grid button:active {
+  background-color: #546e7a;
+  /* Invert bevel on press */
+  border-top:    2px solid #455a64; /* dark shadow becomes top/left */
+  border-left:   2px solid #455a64;
+  border-bottom: 2px solid #d0d2d6; /* subtle highlight becomes bottom/right */
+  border-right:  2px solid #d0d2d6;
+}
+
+/* Equal Button (Beveled) */
 #button-grid #operatoreq {
-    width: 170px;
+  width: 170px;
+  background-color: #f57c00;
+  border-top: 2px solid #ffb74d;    /* moderate highlight */
+  border-left: 2px solid #ffb74d;
+  border-bottom: 2px solid #e65100; /* moderate shadow */
+  border-right: 2px solid #e65100;
+}
+
+#button-grid #operatoreq:hover {
+  background-color: #fb8c00;
+}
+
+#button-grid #operatoreq:active {
+  background-color: #ef6c00;
+  /* Inverted bevel for equal on press */
+  border-top:    2px solid #e65100;
+  border-left:   2px solid #e65100;
+  border-bottom: 2px solid #ffb74d;
+  border-right:  2px solid #ffb74d;
+}
+
+/* Responsive Adjustment */
+@media (max-width: 400px) {
+  #button-grid {
+    width: 300px;
+  }
+  #button-grid #screen {
+    width: 290px;
+  }
+  #button-grid button {
+    width: 66px;
+    height: 50px;
+    font-size: 16px;
+  }
+  #button-grid #operatoreq {
+    width: 142px;
+  }
 }
